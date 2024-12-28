@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
         resize(image, resizedImage, Size(32, 32));
         images.push_back(resizedImage);
         fprintf(stdout, "Image %d loaded\n", i);
-        imshow("Original Image", resizedImage);
+        // imshow("Original Image", resizedImage);
     }
     // Apply Gabor filter to all images
     vector<Mat> gaborImages;
