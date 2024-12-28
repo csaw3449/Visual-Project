@@ -1,0 +1,47 @@
+# Ignore CMake build files
+CMakeSettings.json
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+CMakeScripts/
+__pycache__/
+
+# Ignore build, output directories, and object files
+build/
+out/
+bin/
+obj/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.out
+*.d
+
+# Ignore generated files (logs, backups, temp files)
+*.generated
+*.log
+*.bak
+*.swp
+*.swo
+*.tmp
+
+# Ignore external and assets folders
+external/
+assets/
+
+# Ignore IDE and editor-specific files
+.vscode/
+.vs/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Additional files to ignore
+.vs/
