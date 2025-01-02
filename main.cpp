@@ -7,7 +7,7 @@
 using namespace cv;
 using namespace std;
 
-// Random number generator for transformations
+/* Random number generator for transformations
 std::random_device rd;
 std::mt19937 gen(rd());
 
@@ -116,30 +116,55 @@ void createAugmentedDataset(const string& inputPath, const string& outputPath, i
         }
 }
 
-// Main function
-int main(int argc, char** argv) {
-    // Define dataset paths for each hand gesture
-    string datasetPath = "dataset";
-    string hand_gesture_1 = datasetPath + "/hand_1";
-    string hand_gesture_2 = datasetPath + "/hand_2";
-    string hand_gesture_3 = datasetPath + "/hand_3";
-    string hand_gesture_4 = datasetPath + "/hand_4";
-    string hand_gesture_5 = datasetPath + "/hand_5";
+// Main function*/
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
 
-    // Output directory for augmented dataset
-    string outputDir = "augmented_data";
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
 
-    // Number of augmentations per image
-    int augmentationsPerImage = 20;
+void savePathsToCSV(const std::string& filename, const std::vector<std::string>& imagePaths, const std::vector<string>& labels) {
+    // Open the file in truncate mode to clear its content
+    std::ofstream file(filename, std::ios::trunc);
+    if (!file.is_open()) {
+        std::cerr << "Error: Unable to open file " << filename << std::endl;
+        return;
+    }
 
-    // Create augmented datasets for each hand gesture
-    //createAugmentedDataset(hand_gesture_1, hand_gesture_1, augmentationsPerImage);
-    //createAugmentedDataset(hand_gesture_2, hand_gesture_2, augmentationsPerImage);
-   // createAugmentedDataset(hand_gesture_3, hand_gesture_3, augmentationsPerImage);
-    createAugmentedDataset(hand_gesture_4, hand_gesture_4, augmentationsPerImage);
-    //createAugmentedDataset(hand_gesture_5, hand_gesture_5, augmentationsPerImage);
+    // Write header (optional)
+    file << "Path,Label\n";
 
-    cout << "Augmented dataset created at " << outputDir << endl;
+    // Write image paths and labels to the file
+    for (size_t i = 0; i < imagePaths.size(); ++i) {
+        file << imagePaths[i] << "," << labels[i] << "\n";
+    }
+
+    file.close();
+    std::cout << "Data saved to " << filename << std::endl;
+}
+
+
+int main() {
+    // Paths to the 5 images
+    std::vector<std::string> imagePaths = {
+        "dataset/hand_1/checazzo.jpg",
+        "dataset/hand_2/peace.jpg",
+        "dataset/hand_3/thumbup.jpg",
+        "dataset/hand_4/ok.jpg",
+        "dataset/hand_5/flat.jpg"
+    };
+
+    // Corresponding labels
+    std::vector<string> labels = {"checazzo", "peace", "thumbup", "ok", "flat"};
+
+    // Save the paths and labels to a CSV file
+    savePathsToCSV("images.csv", imagePaths, labels);
+
     return 0;
 }
+
 
