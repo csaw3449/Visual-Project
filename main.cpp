@@ -155,11 +155,12 @@ int main() {
         "dataset/hand_2/peace.jpg",
         "dataset/hand_3/thumbup.jpg",
         "dataset/hand_4/ok.jpg",
-        "dataset/hand_5/flat.jpg"
+        "dataset/hand_5/flat.jpg",
+        "dataset/hand_6/nohandgesture.jpg"
     };
 
     // Corresponding labels
-    std::vector<string> labels = {"checazzo", "peace", "thumbup", "ok", "flat"};
+    std::vector<string> labels = {"checazzo", "peace", "thumbup", "ok", "flat","nohandgesture"};
 
     // Save the paths and labels to a CSV file
     savePathsToCSV("images.csv", imagePaths, labels);
